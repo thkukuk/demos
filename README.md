@@ -1,2 +1,2 @@
 # demos
-Scripts and documentation for Demos
+This repository contains scripts and documentation for demos I made on conferences
