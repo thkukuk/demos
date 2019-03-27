@@ -1,0 +1,20 @@
+# libvirt demo domain
+192.168.111.90  microos.demo microos
+192.168.111.101	kubic-1.demo kubic-1
+192.168.111.102 kubic-2.demo kubic-2
+192.168.111.103 kubic-3.demo kubic-3
+192.168.111.40  lb1.demo lb1 hello.demo
+192.168.111.41  lb2.demo lb2 dashboard.demo
+192.168.111.42  lb3.demo lb3
+192.168.111.43  lb4.demo lb4
+192.168.111.44  lb5.demo lb5
+192.168.111.45  lb6.demo lb6
+192.168.111.46  lb7.demo lb7
+192.168.111.47  lb8.demo lb8
+192.168.111.48  lb9.demo lb9
+192.168.111.49  lb10.demo lb10
+192.168.111.50  ingress.demo ingress
+
+192.168.111.50  grafana.demo grafana
+192.168.111.50  prometheus.demo prometheus
+192.168.111.50  alertmanager.demo alertmanager

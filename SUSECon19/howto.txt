@@ -1,0 +1,97 @@
+Kubic-1:
+- Install with salt-master and salt-minion selected
+- Install .ssh/authorized_keys
+- Create /etc/salt/minion.d/master.conf (localhost)
+``echo "master: localhost" > /etc/salt/minion.d/master.conf``
+- Create /etc/salt/minion.d/grains.conf (kube-master)
+``
+grains:
+  roles:
+    - kube-master
+``
+- install update-checker, pv, kured-yaml, helm, nfs-kernel-server
+- Create and export /var/lib/nfs-exports via NFS
+- "kubeadm config images pull --cri-socket=/var/run/crio/crio.sock"
+
+Kubic-2/Kubic-3:
+- Install with salt-minion selected
+- Install .ssh/authorized_keys
+- install update-checker
+- Create /etc/salt/minion.d/master.conf
+``echo "master: kubic-1.demo" > /etc/salt/minion.d/master.conf``
+- Create /etc/salt/minion.d/grains.conf (kube-worker)
+``
+grains:
+  roles:
+    - kube-worker
+``
+- Enable and start salt-minion.service
+
+Demo:
+-----
+Run ./kubic-1.sh and install/configure kubernetes with kubeadm and salt
+1. kubeadm
+ a) Save the --token... part of the output
+2. Copy .kube/config
+3. Install flannel
+4. Install kured
+5. Enable and start salt-master
+6. Configure salt-minion for localhost
+7. Enable and start salt-minion
+8. List Keys
+9. Accept all Keys
+10. Show salt command for Copy&Paste
+11. Enter salt command for kubeadm join with --token arguments
+12. kubectl get nodes
+13. Show pending updates
+14. Show all pods
+15. Configure transactional-update to use kured
+16. Show /etc/transactional-update.conf
+17. End
+
+
+Access to cluster:
+------------------
+Copy .kube/config to main system
+
+
+MetalLB:
+--------
+# kubectl apply -f manifests/metallb.yaml
+# kubectl apply -f manifests/metallb-layer2-config.yaml
+# kubectl get pods -n metallb-system
+# kubectl logs -l component=speaker -n metallb-system
+
+Hello-World example:
+--------------------
+https://github.com/paulbouwer/hello-kubernetes
+# kubectl apply -f manifests/hello-kubernetes.yaml
+
+
+Kubernetes Dashboard:
+---------------------
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+# kubectl apply -f manifests/dashboard-lb.yaml
+# kubectl -n kubernetes-dashboard get svc --namespace=kube-system
+# https://<EXTERNAL-IP>/
+# kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+
+
+Ingress Controller:
+-------------------
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+# kubectl apply -f manifests/ingress-metallb.yaml
+# kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch
+
+Prometheus/Grafana:
+-------------------
+Needs two PV (persistent storage)
+# git clone https://github.com/helm/charts.git
+# cd charts/stable/prometheus
+# vi values.yaml
+# helm install -f prometheus/values.yaml prometheus --name prometheus --namespace monitoring
+# helm install -f grafana/values.yaml grafana --name grafana --namespace monitoring
+# kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+http://prometheus.demo
+http://alertmanager.demo
+http://grafana.demo

@@ -1,0 +1,412 @@
+<!--
+WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+  virsh net-edit demo
+or other application using the libvirt API.
+-->
+
+<network ipv6='yes'>
+  <name>demo</name>
+  <uuid>328a5a28-c259-4001-847d-7ea2b69967d9</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr1' stp='on' delay='0'/>
+  <mac address='52:54:00:82:aa:e1'/>
+  <domain name='demo'/>
+  <dns>
+    <host ip='192.168.111.128'>
+      <hostname>node128.demo</hostname>
+    </host>
+    <host ip='192.168.111.129'>
+      <hostname>node129.demo</hostname>
+    </host>
+    <host ip='192.168.111.130'>
+      <hostname>node130.demo</hostname>
+    </host>
+    <host ip='192.168.111.131'>
+      <hostname>node131.demo</hostname>
+    </host>
+    <host ip='192.168.111.132'>
+      <hostname>node132.demo</hostname>
+    </host>
+    <host ip='192.168.111.133'>
+      <hostname>node133.demo</hostname>
+    </host>
+    <host ip='192.168.111.134'>
+      <hostname>node134.demo</hostname>
+    </host>
+    <host ip='192.168.111.135'>
+      <hostname>node135.demo</hostname>
+    </host>
+    <host ip='192.168.111.136'>
+      <hostname>node136.demo</hostname>
+    </host>
+    <host ip='192.168.111.137'>
+      <hostname>node137.demo</hostname>
+    </host>
+    <host ip='192.168.111.138'>
+      <hostname>node138.demo</hostname>
+    </host>
+    <host ip='192.168.111.139'>
+      <hostname>node139.demo</hostname>
+    </host>
+    <host ip='192.168.111.140'>
+      <hostname>node140.demo</hostname>
+    </host>
+    <host ip='192.168.111.141'>
+      <hostname>node141.demo</hostname>
+    </host>
+    <host ip='192.168.111.142'>
+      <hostname>node142.demo</hostname>
+    </host>
+    <host ip='192.168.111.143'>
+      <hostname>node143.demo</hostname>
+    </host>
+    <host ip='192.168.111.144'>
+      <hostname>node144.demo</hostname>
+    </host>
+    <host ip='192.168.111.145'>
+      <hostname>node145.demo</hostname>
+    </host>
+    <host ip='192.168.111.146'>
+      <hostname>node146.demo</hostname>
+    </host>
+    <host ip='192.168.111.147'>
+      <hostname>node147.demo</hostname>
+    </host>
+    <host ip='192.168.111.148'>
+      <hostname>node148.demo</hostname>
+    </host>
+    <host ip='192.168.111.149'>
+      <hostname>node149.demo</hostname>
+    </host>
+    <host ip='192.168.111.150'>
+      <hostname>node150.demo</hostname>
+    </host>
+    <host ip='192.168.111.151'>
+      <hostname>node151.demo</hostname>
+    </host>
+    <host ip='192.168.111.152'>
+      <hostname>node152.demo</hostname>
+    </host>
+    <host ip='192.168.111.153'>
+      <hostname>node153.demo</hostname>
+    </host>
+    <host ip='192.168.111.154'>
+      <hostname>node154.demo</hostname>
+    </host>
+    <host ip='192.168.111.155'>
+      <hostname>node155.demo</hostname>
+    </host>
+    <host ip='192.168.111.156'>
+      <hostname>node156.demo</hostname>
+    </host>
+    <host ip='192.168.111.157'>
+      <hostname>node157.demo</hostname>
+    </host>
+    <host ip='192.168.111.158'>
+      <hostname>node158.demo</hostname>
+    </host>
+    <host ip='192.168.111.159'>
+      <hostname>node159.demo</hostname>
+    </host>
+    <host ip='192.168.111.160'>
+      <hostname>node160.demo</hostname>
+    </host>
+    <host ip='192.168.111.161'>
+      <hostname>node161.demo</hostname>
+    </host>
+    <host ip='192.168.111.162'>
+      <hostname>node162.demo</hostname>
+    </host>
+    <host ip='192.168.111.163'>
+      <hostname>node163.demo</hostname>
+    </host>
+    <host ip='192.168.111.164'>
+      <hostname>node164.demo</hostname>
+    </host>
+    <host ip='192.168.111.165'>
+      <hostname>node165.demo</hostname>
+    </host>
+    <host ip='192.168.111.166'>
+      <hostname>node166.demo</hostname>
+    </host>
+    <host ip='192.168.111.167'>
+      <hostname>node167.demo</hostname>
+    </host>
+    <host ip='192.168.111.168'>
+      <hostname>node168.demo</hostname>
+    </host>
+    <host ip='192.168.111.169'>
+      <hostname>node169.demo</hostname>
+    </host>
+    <host ip='192.168.111.170'>
+      <hostname>node170.demo</hostname>
+    </host>
+    <host ip='192.168.111.171'>
+      <hostname>node171.demo</hostname>
+    </host>
+    <host ip='192.168.111.172'>
+      <hostname>node172.demo</hostname>
+    </host>
+    <host ip='192.168.111.173'>
+      <hostname>node173.demo</hostname>
+    </host>
+    <host ip='192.168.111.174'>
+      <hostname>node174.demo</hostname>
+    </host>
+    <host ip='192.168.111.175'>
+      <hostname>node175.demo</hostname>
+    </host>
+    <host ip='192.168.111.176'>
+      <hostname>node176.demo</hostname>
+    </host>
+    <host ip='192.168.111.177'>
+      <hostname>node177.demo</hostname>
+    </host>
+    <host ip='192.168.111.178'>
+      <hostname>node178.demo</hostname>
+    </host>
+    <host ip='192.168.111.179'>
+      <hostname>node179.demo</hostname>
+    </host>
+    <host ip='192.168.111.180'>
+      <hostname>node180.demo</hostname>
+    </host>
+    <host ip='192.168.111.181'>
+      <hostname>node181.demo</hostname>
+    </host>
+    <host ip='192.168.111.182'>
+      <hostname>node182.demo</hostname>
+    </host>
+    <host ip='192.168.111.183'>
+      <hostname>node183.demo</hostname>
+    </host>
+    <host ip='192.168.111.184'>
+      <hostname>node184.demo</hostname>
+    </host>
+    <host ip='192.168.111.185'>
+      <hostname>node185.demo</hostname>
+    </host>
+    <host ip='192.168.111.186'>
+      <hostname>node186.demo</hostname>
+    </host>
+    <host ip='192.168.111.187'>
+      <hostname>node187.demo</hostname>
+    </host>
+    <host ip='192.168.111.188'>
+      <hostname>node188.demo</hostname>
+    </host>
+    <host ip='192.168.111.189'>
+      <hostname>node189.demo</hostname>
+    </host>
+    <host ip='192.168.111.190'>
+      <hostname>node190.demo</hostname>
+    </host>
+    <host ip='192.168.111.191'>
+      <hostname>node191.demo</hostname>
+    </host>
+    <host ip='192.168.111.192'>
+      <hostname>node192.demo</hostname>
+    </host>
+    <host ip='192.168.111.193'>
+      <hostname>node193.demo</hostname>
+    </host>
+    <host ip='192.168.111.194'>
+      <hostname>node194.demo</hostname>
+    </host>
+    <host ip='192.168.111.195'>
+      <hostname>node195.demo</hostname>
+    </host>
+    <host ip='192.168.111.196'>
+      <hostname>node196.demo</hostname>
+    </host>
+    <host ip='192.168.111.197'>
+      <hostname>node197.demo</hostname>
+    </host>
+    <host ip='192.168.111.198'>
+      <hostname>node198.demo</hostname>
+    </host>
+    <host ip='192.168.111.199'>
+      <hostname>node199.demo</hostname>
+    </host>
+    <host ip='192.168.111.200'>
+      <hostname>node200.demo</hostname>
+    </host>
+    <host ip='192.168.111.201'>
+      <hostname>node201.demo</hostname>
+    </host>
+    <host ip='192.168.111.202'>
+      <hostname>node202.demo</hostname>
+    </host>
+    <host ip='192.168.111.203'>
+      <hostname>node203.demo</hostname>
+    </host>
+    <host ip='192.168.111.204'>
+      <hostname>node204.demo</hostname>
+    </host>
+    <host ip='192.168.111.205'>
+      <hostname>node205.demo</hostname>
+    </host>
+    <host ip='192.168.111.206'>
+      <hostname>node206.demo</hostname>
+    </host>
+    <host ip='192.168.111.207'>
+      <hostname>node207.demo</hostname>
+    </host>
+    <host ip='192.168.111.208'>
+      <hostname>node208.demo</hostname>
+    </host>
+    <host ip='192.168.111.209'>
+      <hostname>node209.demo</hostname>
+    </host>
+    <host ip='192.168.111.210'>
+      <hostname>node210.demo</hostname>
+    </host>
+    <host ip='192.168.111.211'>
+      <hostname>node211.demo</hostname>
+    </host>
+    <host ip='192.168.111.212'>
+      <hostname>node212.demo</hostname>
+    </host>
+    <host ip='192.168.111.213'>
+      <hostname>node213.demo</hostname>
+    </host>
+    <host ip='192.168.111.214'>
+      <hostname>node214.demo</hostname>
+    </host>
+    <host ip='192.168.111.215'>
+      <hostname>node215.demo</hostname>
+    </host>
+    <host ip='192.168.111.216'>
+      <hostname>node216.demo</hostname>
+    </host>
+    <host ip='192.168.111.217'>
+      <hostname>node217.demo</hostname>
+    </host>
+    <host ip='192.168.111.218'>
+      <hostname>node218.demo</hostname>
+    </host>
+    <host ip='192.168.111.219'>
+      <hostname>node219.demo</hostname>
+    </host>
+    <host ip='192.168.111.220'>
+      <hostname>node220.demo</hostname>
+    </host>
+    <host ip='192.168.111.221'>
+      <hostname>node221.demo</hostname>
+    </host>
+    <host ip='192.168.111.222'>
+      <hostname>node222.demo</hostname>
+    </host>
+    <host ip='192.168.111.223'>
+      <hostname>node223.demo</hostname>
+    </host>
+    <host ip='192.168.111.224'>
+      <hostname>node224.demo</hostname>
+    </host>
+    <host ip='192.168.111.225'>
+      <hostname>node225.demo</hostname>
+    </host>
+    <host ip='192.168.111.226'>
+      <hostname>node226.demo</hostname>
+    </host>
+    <host ip='192.168.111.227'>
+      <hostname>node227.demo</hostname>
+    </host>
+    <host ip='192.168.111.228'>
+      <hostname>node228.demo</hostname>
+    </host>
+    <host ip='192.168.111.229'>
+      <hostname>node229.demo</hostname>
+    </host>
+    <host ip='192.168.111.230'>
+      <hostname>node230.demo</hostname>
+    </host>
+    <host ip='192.168.111.231'>
+      <hostname>node231.demo</hostname>
+    </host>
+    <host ip='192.168.111.232'>
+      <hostname>node232.demo</hostname>
+    </host>
+    <host ip='192.168.111.233'>
+      <hostname>node233.demo</hostname>
+    </host>
+    <host ip='192.168.111.234'>
+      <hostname>node234.demo</hostname>
+    </host>
+    <host ip='192.168.111.235'>
+      <hostname>node235.demo</hostname>
+    </host>
+    <host ip='192.168.111.236'>
+      <hostname>node236.demo</hostname>
+    </host>
+    <host ip='192.168.111.237'>
+      <hostname>node237.demo</hostname>
+    </host>
+    <host ip='192.168.111.238'>
+      <hostname>node238.demo</hostname>
+    </host>
+    <host ip='192.168.111.239'>
+      <hostname>node239.demo</hostname>
+    </host>
+    <host ip='192.168.111.240'>
+      <hostname>node240.demo</hostname>
+    </host>
+    <host ip='192.168.111.241'>
+      <hostname>node241.demo</hostname>
+    </host>
+    <host ip='192.168.111.242'>
+      <hostname>node242.demo</hostname>
+    </host>
+    <host ip='192.168.111.243'>
+      <hostname>node243.demo</hostname>
+    </host>
+    <host ip='192.168.111.244'>
+      <hostname>node244.demo</hostname>
+    </host>
+    <host ip='192.168.111.245'>
+      <hostname>node245.demo</hostname>
+    </host>
+    <host ip='192.168.111.246'>
+      <hostname>node246.demo</hostname>
+    </host>
+    <host ip='192.168.111.247'>
+      <hostname>node247.demo</hostname>
+    </host>
+    <host ip='192.168.111.248'>
+      <hostname>node248.demo</hostname>
+    </host>
+    <host ip='192.168.111.249'>
+      <hostname>node249.demo</hostname>
+    </host>
+    <host ip='192.168.111.250'>
+      <hostname>node250.demo</hostname>
+    </host>
+    <host ip='192.168.111.251'>
+      <hostname>node251.demo</hostname>
+    </host>
+    <host ip='192.168.111.252'>
+      <hostname>node252.demo</hostname>
+    </host>
+    <host ip='192.168.111.253'>
+      <hostname>node253.demo</hostname>
+    </host>
+    <host ip='192.168.111.254'>
+      <hostname>node254.demo</hostname>
+    </host>
+  </dns>
+  <ip address='192.168.111.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.111.128' end='192.168.111.254'/>
+      <host mac='52:54:00:28:01:cf' name='kubic-1' ip='192.168.111.101'/>
+      <host mac='52:54:00:21:cb:bb' name='kubic-2' ip='192.168.111.102'/>
+      <host mac='52:54:00:93:dd:41' name='kubic-3' ip='192.168.111.103'/>
+      <host mac='52:54:00:82:47:31' name='microos' ip='192.168.111.90'/>
+    </dhcp>
+  </ip>
+  <ip family='ipv6' address='fde0:a:b:c::1' prefix='64'>
+    <dhcp>
+      <range start='fde0:a:b:c::100' end='fde0:a:b:c::1ff'/>
+    </dhcp>
+  </ip>
+</network>
