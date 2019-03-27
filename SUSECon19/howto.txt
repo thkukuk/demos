@@ -72,6 +72,7 @@ Kubernetes Dashboard:
 ---------------------
 # kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
 # kubectl apply -f manifests/dashboard-lb.yaml
+# kubectl apply -f manifests/dashboard-adminuser.yaml
 # kubectl -n kubernetes-dashboard get svc --namespace=kube-system
 # https://<EXTERNAL-IP>/
 # kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
@@ -85,13 +86,3 @@ Ingress Controller:
 
 Prometheus/Grafana:
 -------------------
-Needs two PV (persistent storage)
-# git clone https://github.com/helm/charts.git
-# cd charts/stable/prometheus
-# vi values.yaml
-# helm install -f prometheus/values.yaml prometheus --name prometheus --namespace monitoring
-# helm install -f grafana/values.yaml grafana --name grafana --namespace monitoring
-# kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
-http://prometheus.demo
-http://alertmanager.demo
-http://grafana.demo

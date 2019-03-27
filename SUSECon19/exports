@@ -1,0 +1,2 @@
+/var/lib/nfs-pv         *.demo(rw,no_root_squash,async,acl,no_subtree_check,insecure)
+
