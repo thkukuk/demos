@@ -1,0 +1,36 @@
+variant: fcos
+version: 1.0.0
+passwd:
+  users:
+    - name: root
+      password_hash: "XXX"
+      ssh_authorized_keys:
+        - ssh-rsa AAAAXXX
+storage:
+  filesystems:
+  files:
+    - path: /etc/sysconfig/network/ifcfg-eth0
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          BOOTPROTO='dhcp'
+          BROADCAST=''
+          ETHTOOL_OPTIONS=''
+          IPADDR=''
+          MTU=''
+          NAME=''
+          NETMASK=''
+          NETWORK=''
+          REMOTE_IPADDR=''
+          STARTMODE='auto'
+          DHCLIENT_SET_DEFAULT_ROUTE='yes'
+          DHCLIENT_SET_HOSTNAME='yes'
+    - path: /etc/salt/minion.d/master.conf
+      contents:
+        inline: 'master: rpi4-1'
+      mode: 0644
+systemd:
+  units:
+    - name: salt-minion.service
+      enabled: true

@@ -1,0 +1,71 @@
+;
+; DNS table for demo
+;
+$TTL 1W
+@       IN      SOA     rpi4-1.demo.     hostmaster.demo. (
+                                2020021300      ; Serial
+                                10800           ; Refresh
+                                3600            ; Retry
+                                1W              ; Expire
+                                86400 )         ; Minimum
+
+                IN      NS      rpi4-1.demo.
+
+; fixed nodes
+rpi4-1          IN      A       172.27.0.1
+rpi4-2          IN      A       172.27.0.2
+rpi4-3          IN      A       172.27.0.3
+rpi4-4          IN      A       172.27.0.4
+
+; loadbalancers for kubernetes
+rpi4-lb1	IN	A	172.27.0.21
+rpi4-lb2	IN	A	172.27.0.22
+rpi4-lb3	IN	A	172.27.0.23
+rpi4-lb4	IN	A	172.27.0.24
+rpi4-lb5	IN	A	172.27.0.25
+rpi4-lb6	IN	A	172.27.0.26
+rpi4-lb7	IN	A	172.27.0.27
+rpi4-lb8	IN	A	172.27.0.28
+rpi4-lb9	IN	A	172.27.0.29
+
+; dynamic IP addresses
+rpi4-d1		IN	A	172.27.0.101
+rpi4-d2		IN	A	172.27.0.102
+rpi4-d3		IN	A	172.27.0.103
+rpi4-d4		IN	A	172.27.0.104
+rpi4-d5		IN	A	172.27.0.105
+rpi4-d6		IN	A	172.27.0.106
+rpi4-d7		IN	A	172.27.0.107
+rpi4-d8		IN	A	172.27.0.108
+rpi4-d9		IN	A	172.27.0.109
+rpi4-d10	IN	A	172.27.0.110
+rpi4-d11	IN	A	172.27.0.111
+rpi4-d12	IN	A	172.27.0.112
+rpi4-d13	IN	A	172.27.0.113
+rpi4-d14	IN	A	172.27.0.114
+rpi4-d15	IN	A	172.27.0.115
+rpi4-d16	IN	A	172.27.0.116
+rpi4-d17	IN	A	172.27.0.117
+rpi4-d18	IN	A	172.27.0.118
+rpi4-d19	IN	A	172.27.0.119
+rpi4-d20	IN	A	172.27.0.120
+rpi4-d21	IN	A	172.27.0.121
+rpi4-d22	IN	A	172.27.0.122
+rpi4-d23	IN	A	172.27.0.123
+rpi4-d24	IN	A	172.27.0.124
+rpi4-d25	IN	A	172.27.0.125
+rpi4-d26	IN	A	172.27.0.126
+rpi4-d27	IN	A	172.27.0.127
+rpi4-d28	IN	A	172.27.0.128
+rpi4-d29	IN	A	172.27.0.129
+rpi4-d30	IN	A	172.27.0.130
+rpi4-d31	IN	A	172.27.0.131
+rpi4-d32	IN	A	172.27.0.132
+rpi4-d33	IN	A	172.27.0.133
+rpi4-d34	IN	A	172.27.0.134
+rpi4-d35	IN	A	172.27.0.135
+rpi4-d36	IN	A	172.27.0.136
+rpi4-d37	IN	A	172.27.0.137
+rpi4-d38	IN	A	172.27.0.138
+rpi4-d39	IN	A	172.27.0.139
+rpi4-d40	IN	A	172.27.0.140

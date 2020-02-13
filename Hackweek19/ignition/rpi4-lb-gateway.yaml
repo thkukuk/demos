@@ -1,0 +1,63 @@
+variant: fcos
+version: 1.0.0
+passwd:
+  users:
+    - name: root
+      password_hash: "XXX"
+      ssh_authorized_keys:
+        - ssh-rsa AAAAXXX
+storage:
+  filesystems:
+  files:
+    - path: /etc/hostname
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          rpi4-1
+    - path: /etc/sysconfig/network/ifcfg-eth0
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          BOOTPROTO='static'
+          BROADCAST=''
+          ETHTOOL_OPTIONS=''
+          IPADDR='172.27.0.1'
+          MTU=''
+          NAME=''
+          NETMASK='255.255.255.0'
+          NETWORK='172.27.0.0'
+          REMOTE_IPADDR=''
+          STARTMODE='auto'
+    - path: /etc/sysconfig/network/ifcfg-eth1
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          BOOTPROTO='dhcp'
+          BROADCAST=''
+          ETHTOOL_OPTIONS=''
+          IPADDR=''
+          MTU=''
+          NAME=''
+          NETMASK=''
+          NETWORK=''
+          REMOTE_IPADDR=''
+          STARTMODE='auto'
+          DHCLIENT_SET_DEFAULT_ROUTE='yes'
+          DHCLIENT_SET_HOSTNAME='no'
+    - path: /etc/lcdnetmon.conf.d/lcd2004-ip.conf
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          ROWS="4"
+          LINE1="eth0/eth1/wlan0"
+          LINE2="\4{eth0}"
+          LINE3="\4{eth1}"
+          LINE4="\4{wlan0}"
+systemd:
+  units:
+    - name: lcdnetmon.service
+      enabled: true

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo "Usage: classify-image <node name> <image>"
+    exit 1
+fi
+
+curl -H "Content-type: application/octet-stream" -X POST http://${1}:30008/image --data-binary @${2}

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $# -ne 1 ]; then
+    echo "Usage: advertise-ncs2 <node name>"
+    exit 1
+fi
+
+curl --header "Content-Type: application/json-patch+json" \
+--request PATCH \
+--data '[{"op": "add", "path": "/status/capacity/thkukuk.de~1NCS2", "value": "1"}]' \
+http://localhost:8001/api/v1/nodes/$1/status

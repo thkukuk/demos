@@ -1,0 +1,71 @@
+;
+; DNS table for 27.172.in-addr.arpa
+;
+$TTL 1W
+@	IN	SOA	rpi4-1.demo.	hostmaster.rpi4-1.demo. (
+				2020021300	; Serial
+				10800		; Refresh
+				3600		; Retry
+				1W		; Expire
+				86400 )		; Minimum
+
+		IN	NS	demo.
+
+; fixed IP addresses for nodes
+1.0	IN	PTR	rpi4-1.demo.
+2.0	IN	PTR	rpi4-2.demo.
+3.0	IN	PTR	rpi4-3.demo.
+4.0	IN	PTR	rpi4-4.demo.
+
+; loadbalancer for kubernetes
+21.0	IN	PTR	rpi4-lb1.demo.
+22.0	IN	PTR	rpi4-lb2.demo.
+23.0	IN	PTR	rpi4-lb3.demo.
+24.0	IN	PTR	rpi4-lb4.demo.
+25.0	IN	PTR	rpi4-lb5.demo.
+26.0	IN	PTR	rpi4-lb6.demo.
+27.0	IN	PTR	rpi4-lb7.demo.
+28.0	IN	PTR	rpi4-lb8.demo.
+29.0	IN	PTR	rpi4-lb9.demo.
+
+; dynamic IP addresses
+101.0	IN	PTR	rpi4-d1.demo.
+102.0	IN	PTR	rpi4-d2.demo.
+103.0	IN	PTR	rpi4-d3.demo.
+104.0	IN	PTR	rpi4-d4.demo.
+105.0	IN	PTR	rpi4-d5.demo.
+106.0	IN	PTR	rpi4-d6.demo.
+107.0	IN	PTR	rpi4-d7.demo.
+108.0	IN	PTR	rpi4-d8.demo.
+109.0	IN	PTR	rpi4-d9.demo.
+110.0	IN	PTR	rpi4-d10.demo.
+111.0	IN	PTR	rpi4-d11.demo.
+112.0	IN	PTR	rpi4-d12.demo.
+113.0	IN	PTR	rpi4-d13.demo.
+114.0	IN	PTR	rpi4-d14.demo.
+115.0	IN	PTR	rpi4-d15.demo.
+116.0	IN	PTR	rpi4-d16.demo.
+117.0	IN	PTR	rpi4-d17.demo.
+118.0	IN	PTR	rpi4-d18.demo.
+119.0	IN	PTR	rpi4-d19.demo.
+120.0	IN	PTR	rpi4-d20.demo.
+121.0	IN	PTR	rpi4-d21.demo.
+122.0	IN	PTR	rpi4-d22.demo.
+123.0	IN	PTR	rpi4-d23.demo.
+124.0	IN	PTR	rpi4-d24.demo.
+125.0	IN	PTR	rpi4-d25.demo.
+126.0	IN	PTR	rpi4-d26.demo.
+127.0	IN	PTR	rpi4-d27.demo.
+128.0	IN	PTR	rpi4-d28.demo.
+129.0	IN	PTR	rpi4-d29.demo.
+130.0	IN	PTR	rpi4-d30.demo.
+131.0	IN	PTR	rpi4-d31.demo.
+132.0	IN	PTR	rpi4-d32.demo.
+133.0	IN	PTR	rpi4-d33.demo.
+134.0	IN	PTR	rpi4-d34.demo.
+135.0	IN	PTR	rpi4-d35.demo.
+136.0	IN	PTR	rpi4-d36.demo.
+137.0	IN	PTR	rpi4-d37.demo.
+138.0	IN	PTR	rpi4-d38.demo.
+139.0	IN	PTR	rpi4-d39.demo.
+140.0	IN	PTR	rpi4-d40.demo.
