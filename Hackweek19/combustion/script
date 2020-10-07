@@ -1,0 +1,3 @@
+#!/bin/sh
+# combustion: network
+zypper --non-interactive install container-registry-systemd apache2-utils mirror-registry reg salt-master kubicd
