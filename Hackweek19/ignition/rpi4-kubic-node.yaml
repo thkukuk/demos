@@ -3,9 +3,9 @@ version: 1.0.0
 passwd:
   users:
     - name: root
-      password_hash: "XXX"
+      password_hash: "!!"
       ssh_authorized_keys:
-        - ssh-rsa AAAAXXX
+        - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr65oH5INZFVpkU7ETyiRckDepBteh+IdBTGOpz07tV1cw0AK3OpV7XzozCBabf3RfpNyp4c2dnPjZZFEpiJsqEXylWXIOsAsIoQLJ6auhpT/z5k/UO5H1GNXB0A+PeTdg3quPAvbGcI2W1cbhhaGwxsa/6f6ZFbrCYIWnw6Os78fc/dD5dfm3BxxDLCc0VZRMY4ecxFA3Gy5YdvrhglEPYCHzoVKvtZxfSmQLFm1IrkQTd3NU6BN2+NktJLBTdaN0qD8AjawhWPY7OWF7XJ2CU8mgOvDiadcgIqfgvUiKGrCMTlNjvAnFEUn5p0wuqLZ6uE+zJpN4a5bTOwgeZ0xcw== kukuk@thkukuk.de
 storage:
   filesystems:
   files:

@@ -24,38 +24,33 @@ Download from: https://download.opensuse.org/repositories/home:/kukuk:/raspi:/im
 ## Configuration
 
 ### Edge Gateway
-Use ignition/rpi4-lb-gateway.yaml, convert to config.ign and use that as
-source to configure:
+
+#### Ignition and combustion configuration files
+
+Ignition and combustion are used to configure the Raspberry Pi during first
+boot.
+
+Use ignition/rpi4-lb-gateway.yaml, convert to config.ign
+(`ignition-config-transpiler --strict rpi4-lb-gateway.yaml > /<usbstick>/ignition/config.ign`) and
+use that as source to configure:
 * eth0 - internal network
 * eth1 - external network
 * ssh key
 * root password
 * LCD display
+* chrony using local RTC
+
+Additional use the `combustion` configuration to install additional, required
+packages during first boot (`cp -a combustion /<usbstick>/combustion/script`).
 
 #### Configuration files
 Copy the directory structure and files from *srv* to */srv* on *rpi4-1.demo*.
 Copy the *registries.conf* file to */srv/salt* on *rpi4-1.demo*
 
-#### NTP server
-Configure chronyd to become a ntp server and add to */etc/chrony.conf*:
-
-    local stratum 8
-    allow 172.27.0.0/24
-
-and restart chrony: ``systemctl restart chronyd``
-
-#### Install missing packages
-
-```
-  # transactional-update pkg install container-registry-systemd containers-systemd apache2-utils mirror-registry reg salt-master kubicd
-  # systemctl reboot
-```
-
 #### Setup local container registry
-
 At first, we need a password for the registry (blowfish hash).
 ``htpasswd -nB admin`` creates such a hash, which needs to be inserted in the
-configuration file: ``nano /etc/registry/auth_config.yml``
+configuration file: ``vi /etc/registry/auth_config.yml``
 
 We re-create the certificates, as we need to add the hostnames of the external
 interface. The hostnames in the ``create-container-registry-certs`` line needs
@@ -77,7 +72,7 @@ deploy kubernetes on the local cluster without internet connection.
   # skopeo sync --scoped --src yaml --dest docker --dest-creds admin:password kubic-small.yaml localhost
 ```
 
-#### Setup bind, dhcp and salt-master
+#### Setup bind, dhcp, squid and salt-master
 
 Start local name server:
 
@@ -89,16 +84,39 @@ Start local name server:
 Adjust DNS configuration of rpi4-1.demo to use local nameserver, too:
 
 ```
-  # nano /etc/sysconfig/network/config
+  # vi /etc/sysconfig/network/config
   NETCONFIG_DNS_STATIC_SEARCHLIST="demo"
   NETCONFIG_DNS_STATIC_SERVERS="127.0.0.1"
 ```
 
-Adjust DHCP Interface in */etc/sysconfig/container-dhcp-server* and start the
+Adjust DHCP Interface in */usr/etc/default/container-dhcp-server* and start the
 dhcp-server and salt-master:
 
 ```
+  # echo DHCPD_INTERFACES=\"eth0\" > /etc/default/container-dhcp-server
   # systemctl enable --now container-dhcp-server
+```
+
+Configure squid, so that the cluster nodes can update the OS:
+
+```
+  # mkdir -p /srv/squid/cache
+  # podman run --rm registry.opensuse.org/opensuse/squid cat /etc/squid/squid.conf > /srv/squid/squid.conf
+  # echo "PODMAN_SQUID_ARGS=\"-p 3128:3128 -v /srv/squid/squid.conf:/etc/squid/squid.conf:ro -v /srv/squid/cache:/var/cache/squid\"" > /etc/default/container-squid
+```
+
+Edit */srv/squid/squid.conf* and adjust the configuration, e.g. enable
+persistent caching on disk.
+
+Enable and start squid:
+
+```
+  # systemctl enable --now container-squid
+```
+
+Enable and start the salt master:
+
+```
   # systemctl enable --now salt-master
 ```
 
@@ -156,7 +174,7 @@ Plug-in the NCS2 and install the driver on node rpi4-4:
 ```
 # transactional-update pkg install dldt-udev dldt-firmware myriadctl
 # systemctl reboot
-# systemctl enable --now myriadctl
+# systemctl enable --now myriad
 ```
 
 Add the NCS2 as resource for rpi4-4
