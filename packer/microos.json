@@ -1,0 +1,74 @@
+{
+"variables": {
+    "arch": "64",
+    "autoinst_cfg": "autoyast-microos.xml",
+    "box_basename": "microos",
+    "cpus": "2",
+    "memory": "2048",
+    "disk_size": "20G",
+    "download": "https://download.opensuse.org/tumbleweed/iso",
+    "guest_additions_url": "",
+    "headless": "true",
+    "http_directory": "{{template_dir}}/http",
+    "iso_name": "openSUSE-MicroOS-DVD-x86_64-Current.iso",
+    "iso_checksum": "ISO_CHECKSUM",
+    "iso_checksum_type": "sha256",
+    "name": "MicroOS",
+    "version": "TIMESTAMP"
+  },
+  "builders": [
+    {
+      "name": "{{user `name`}}-{{user `version`}}",
+      "vm_name": "{{user `name`}}-{{user `version`}}",
+      "type": "qemu",
+      "accelerator": "kvm",
+      "boot_command": [
+        "<esc><enter><wait>",
+        "linux biosdevname=0 net.ifnames=0 netdevice=eth0 netsetup=dhcp",
+        " install=cd:/<wait>",
+        " lang=en_US autoyast=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `autoinst_cfg`}}<wait>",
+        " textmode=1<wait>",
+        "<enter><wait>"
+      ],
+      "boot_wait": "10s",
+      "cpus": "{{ user `cpus` }}",
+      "disk_cache": "none",
+      "disk_interface": "virtio",
+      "disk_size": "{{user `disk_size`}}",
+      "disk_compression": true,
+      "format": "qcow2",
+      "headless": "{{ user `headless` }}",
+      "http_directory": "{{user `http_directory`}}",
+      "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
+      "iso_url": "{{user `download`}}/{{user `iso_name`}}",
+      "memory": "{{ user `memory` }}",
+      "net_device": "virtio-net",
+      "output_directory": "builds/qemu/{{user `name`}}-{{user `version`}}",
+      "qemu_binary": "/usr/bin/qemu-system-x86_64",
+      "qemuargs": [
+        [
+          "-m",
+          "{{user `memory`}}M"
+        ],
+        [
+          "-smp",
+          "{{user `cpus`}}"
+        ]
+      ],
+      "shutdown_command": "/usr/sbin/shutdown -h now",
+      "ssh_password": "linux",
+      "ssh_port": 22,
+      "ssh_timeout": "10000s",
+      "ssh_username": "root"
+    }
+  ],
+    "provisioners": [
+	{
+	    "scripts": [
+		"{{template_dir}}/scripts/repositories.sh",
+		"{{template_dir}}/scripts/cleanup.sh"
+	    ],
+	    "type": "shell"
+	}
+    ]
+}
