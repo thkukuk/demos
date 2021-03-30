@@ -18,7 +18,8 @@ ${PACKER} build -var version="${VERSION}" -var iso_checksum="${ISO_CHECKSUM}" "$
 
 mkdir -p images
 mv "builds/qemu/MicroOS-${VERSION}/MicroOS-${VERSION}" "images/MicroOS-${VERSION}.qcow2"
-pushd images || exit
+pushd images > /dev/null || exit
 sha256sum "MicroOS-${VERSION}.qcow2" > "MicroOS-${VERSION}.qcow2.sha256"
+popd > /dev/null || exit
 
 rm -rf "${TMPDIR}"
