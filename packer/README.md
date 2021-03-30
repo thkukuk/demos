@@ -1,7 +1,7 @@
-# Building MicroOS qcow2 images with packer.io
+# Building MicroOS and SLE Micro qcow2 images with packer.io
 
-This directories contains everything required to build MicroOS qcow2
-images with packer (https://packer.io)
+This directories contains everything required to build MicroOS and
+SLE Micro qcow2 images with packer (https://packer.io)
 
 ## Prerequisites
 
@@ -25,13 +25,26 @@ needs to point to it.
 
 ## Build the image
 
+### MicroOS
+
 Just call:
 
 ```
-# ./build.sh
+# ./build-microos.sh
 ```
 
 As result, there should be an image `MicroOS-<VERSION>.qcow` in the `images`
+directory.
+
+### SLE Micreo
+
+Just call:
+
+```
+# ./build-sle-micro.sh
+```
+
+As result, there should be an image `SLE-Micro-<VERSION>.qcow` in the `images`
 directory.
 
 ## Run the image
