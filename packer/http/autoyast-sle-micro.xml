@@ -100,6 +100,10 @@
       <pattern>microos-container_runtime</pattern>
       <pattern>microos-selinux</pattern>
     </patterns>
+    <packages config:type="list">
+      <package>ignition</package>
+      <package>combustion</package>
+    </packages>
   </software>
   <services-manager>
     <default_target>multi-user</default_target>
